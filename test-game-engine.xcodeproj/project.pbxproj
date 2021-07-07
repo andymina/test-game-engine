@@ -59,6 +59,8 @@
 		32C5114126957D9400721E97 /* OpenGLImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLImplementation.h; sourceTree = "<group>"; };
 		32C5114226957D9400721E97 /* OpenGLShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLShader.h; sourceTree = "<group>"; };
 		32C5114326957EAF00721E97 /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		32C511442695806000721E97 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		32C511452695808B00721E97 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		32E3811B2683E67F0096EB94 /* test-game-engine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "test-game-engine"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -181,6 +183,8 @@
 		32E381122683E67F0096EB94 = {
 			isa = PBXGroup;
 			children = (
+				32C511452695808B00721E97 /* .gitignore */,
+				32C511442695806000721E97 /* README.md */,
 				32C5112326957C6300721E97 /* build */,
 				32C51120269579C700721E97 /* deps */,
 				32C5111F269579BC00721E97 /* obj */,
