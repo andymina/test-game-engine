@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32B597272696924200067C1F /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32B597262696924200067C1F /* Entity.cpp */; };
+		32B597562696A14F00067C1F /* libgame-engine.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 32B597542696A14500067C1F /* libgame-engine.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		32B5976F2696A45800067C1F /* libgame-engine.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B597542696A14500067C1F /* libgame-engine.dylib */; };
 		32C5111C269579A100721E97 /* GameApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32C5111A269579A000721E97 /* GameApp.cpp */; };
 		32C5111D269579A100721E97 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32C5111B269579A000721E97 /* main.cpp */; };
-		32C5112626957CE000721E97 /* libgame-engine.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 32C5112426957CE000721E97 /* libgame-engine.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		32C5112D26957D0600721E97 /* libgame-engine.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C5112C26957D0600721E97 /* libgame-engine.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -20,7 +21,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				32C5112626957CE000721E97 /* libgame-engine.dylib in Embed Libraries */,
+				32B597562696A14F00067C1F /* libgame-engine.dylib in Embed Libraries */,
 			);
 			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -37,27 +38,28 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		32B597262696924200067C1F /* Entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
+		32B597412696A13700067C1F /* pch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pch.h; sourceTree = "<group>"; };
+		32B597432696A13700067C1F /* macOSWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macOSWindow.h; sourceTree = "<group>"; };
+		32B597442696A13700067C1F /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		32B597452696A13700067C1F /* HunterKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HunterKeys.h; sourceTree = "<group>"; };
+		32B597462696A13700067C1F /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		32B597472696A13700067C1F /* KeyboardEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardEvents.h; sourceTree = "<group>"; };
+		32B597482696A13700067C1F /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
+		32B597492696A13700067C1F /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
+		32B5974A2696A13700067C1F /* Hunter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hunter.h; sourceTree = "<group>"; };
+		32B5974C2696A13700067C1F /* WindowsOSWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowsOSWindow.h; sourceTree = "<group>"; };
+		32B5974D2696A13700067C1F /* RendererImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendererImplementation.h; sourceTree = "<group>"; };
+		32B5974E2696A13700067C1F /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
+		32B5974F2696A13700067C1F /* HunterApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HunterApp.h; sourceTree = "<group>"; };
+		32B597502696A13700067C1F /* HunterCentral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HunterCentral.h; sourceTree = "<group>"; };
+		32B597522696A13700067C1F /* OpenGLImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLImplementation.h; sourceTree = "<group>"; };
+		32B597532696A13700067C1F /* OpenGLShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLShader.h; sourceTree = "<group>"; };
+		32B597542696A14500067C1F /* libgame-engine.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = "libgame-engine.dylib"; sourceTree = "<group>"; };
+		32B597592696A1F700067C1F /* mario.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = mario.gif; sourceTree = "<group>"; };
 		32C511182695799A00721E97 /* GameApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameApp.h; sourceTree = "<group>"; };
 		32C5111A269579A000721E97 /* GameApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameApp.cpp; sourceTree = "<group>"; };
 		32C5111B269579A000721E97 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		32C5112426957CE000721E97 /* libgame-engine.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libgame-engine.dylib"; path = "deps/libs/libgame-engine.dylib"; sourceTree = "<group>"; };
-		32C5112C26957D0600721E97 /* libgame-engine.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = "libgame-engine.dylib"; sourceTree = "<group>"; };
-		32C5113026957D9400721E97 /* pch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pch.h; sourceTree = "<group>"; };
-		32C5113226957D9400721E97 /* macOSWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macOSWindow.h; sourceTree = "<group>"; };
-		32C5113326957D9400721E97 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
-		32C5113426957D9400721E97 /* HunterKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HunterKeys.h; sourceTree = "<group>"; };
-		32C5113526957D9400721E97 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		32C5113626957D9400721E97 /* KeyboardEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardEvents.h; sourceTree = "<group>"; };
-		32C5113726957D9400721E97 /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
-		32C5113826957D9400721E97 /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
-		32C5113926957D9400721E97 /* Hunter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hunter.h; sourceTree = "<group>"; };
-		32C5113B26957D9400721E97 /* WindowsOSWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowsOSWindow.h; sourceTree = "<group>"; };
-		32C5113C26957D9400721E97 /* RendererImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendererImplementation.h; sourceTree = "<group>"; };
-		32C5113D26957D9400721E97 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
-		32C5113E26957D9400721E97 /* HunterApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HunterApp.h; sourceTree = "<group>"; };
-		32C5113F26957D9400721E97 /* HunterCentral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HunterCentral.h; sourceTree = "<group>"; };
-		32C5114126957D9400721E97 /* OpenGLImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLImplementation.h; sourceTree = "<group>"; };
-		32C5114226957D9400721E97 /* OpenGLShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLShader.h; sourceTree = "<group>"; };
 		32C5114326957EAF00721E97 /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		32C511442695806000721E97 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		32C511452695808B00721E97 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -69,13 +71,76 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32C5112D26957D0600721E97 /* libgame-engine.dylib in Frameworks */,
+				32B5976F2696A45800067C1F /* libgame-engine.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32B597402696A13700067C1F /* Hunter */ = {
+			isa = PBXGroup;
+			children = (
+				32B597412696A13700067C1F /* pch.h */,
+				32B597422696A13700067C1F /* macOS */,
+				32B597442696A13700067C1F /* Shader.h */,
+				32B597452696A13700067C1F /* HunterKeys.h */,
+				32B597462696A13700067C1F /* Event.h */,
+				32B597472696A13700067C1F /* KeyboardEvents.h */,
+				32B597482696A13700067C1F /* Renderer.h */,
+				32B597492696A13700067C1F /* Window.h */,
+				32B5974A2696A13700067C1F /* Hunter.h */,
+				32B5974B2696A13700067C1F /* WindowsOS */,
+				32B5974D2696A13700067C1F /* RendererImplementation.h */,
+				32B5974E2696A13700067C1F /* Sprite.h */,
+				32B5974F2696A13700067C1F /* HunterApp.h */,
+				32B597502696A13700067C1F /* HunterCentral.h */,
+				32B597512696A13700067C1F /* OpenGL */,
+			);
+			path = Hunter;
+			sourceTree = "<group>";
+		};
+		32B597422696A13700067C1F /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				32B597432696A13700067C1F /* macOSWindow.h */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		32B5974B2696A13700067C1F /* WindowsOS */ = {
+			isa = PBXGroup;
+			children = (
+				32B5974C2696A13700067C1F /* WindowsOSWindow.h */,
+			);
+			path = WindowsOS;
+			sourceTree = "<group>";
+		};
+		32B597512696A13700067C1F /* OpenGL */ = {
+			isa = PBXGroup;
+			children = (
+				32B597522696A13700067C1F /* OpenGLImplementation.h */,
+				32B597532696A13700067C1F /* OpenGLShader.h */,
+			);
+			path = OpenGL;
+			sourceTree = "<group>";
+		};
+		32B597572696A1DC00067C1F /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				32B597582696A1F700067C1F /* sprites */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		32B597582696A1F700067C1F /* sprites */ = {
+			isa = PBXGroup;
+			children = (
+				32B597592696A1F700067C1F /* mario.gif */,
+			);
+			path = sprites;
+			sourceTree = "<group>";
+		};
 		32C511172695799A00721E97 /* include */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +155,7 @@
 			children = (
 				32C5111A269579A000721E97 /* GameApp.cpp */,
 				32C5111B269579A000721E97 /* main.cpp */,
+				32B597262696924200067C1F /* Entity.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -120,7 +186,7 @@
 		32C5112B26957D0600721E97 /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				32C5112C26957D0600721E97 /* libgame-engine.dylib */,
+				32B597542696A14500067C1F /* libgame-engine.dylib */,
 			);
 			path = libs;
 			sourceTree = "<group>";
@@ -128,61 +194,15 @@
 		32C5112E26957D9400721E97 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				32C5112F26957D9400721E97 /* Hunter */,
+				32B597402696A13700067C1F /* Hunter */,
 			);
 			path = include;
-			sourceTree = "<group>";
-		};
-		32C5112F26957D9400721E97 /* Hunter */ = {
-			isa = PBXGroup;
-			children = (
-				32C5113026957D9400721E97 /* pch.h */,
-				32C5113126957D9400721E97 /* macOS */,
-				32C5113326957D9400721E97 /* Shader.h */,
-				32C5113426957D9400721E97 /* HunterKeys.h */,
-				32C5113526957D9400721E97 /* Event.h */,
-				32C5113626957D9400721E97 /* KeyboardEvents.h */,
-				32C5113726957D9400721E97 /* Renderer.h */,
-				32C5113826957D9400721E97 /* Window.h */,
-				32C5113926957D9400721E97 /* Hunter.h */,
-				32C5113A26957D9400721E97 /* WindowsOS */,
-				32C5113C26957D9400721E97 /* RendererImplementation.h */,
-				32C5113D26957D9400721E97 /* Sprite.h */,
-				32C5113E26957D9400721E97 /* HunterApp.h */,
-				32C5113F26957D9400721E97 /* HunterCentral.h */,
-				32C5114026957D9400721E97 /* OpenGL */,
-			);
-			path = Hunter;
-			sourceTree = "<group>";
-		};
-		32C5113126957D9400721E97 /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				32C5113226957D9400721E97 /* macOSWindow.h */,
-			);
-			path = macOS;
-			sourceTree = "<group>";
-		};
-		32C5113A26957D9400721E97 /* WindowsOS */ = {
-			isa = PBXGroup;
-			children = (
-				32C5113B26957D9400721E97 /* WindowsOSWindow.h */,
-			);
-			path = WindowsOS;
-			sourceTree = "<group>";
-		};
-		32C5114026957D9400721E97 /* OpenGL */ = {
-			isa = PBXGroup;
-			children = (
-				32C5114126957D9400721E97 /* OpenGLImplementation.h */,
-				32C5114226957D9400721E97 /* OpenGLShader.h */,
-			);
-			path = OpenGL;
 			sourceTree = "<group>";
 		};
 		32E381122683E67F0096EB94 = {
 			isa = PBXGroup;
 			children = (
+				32B597572696A1DC00067C1F /* assets */,
 				32C511452695808B00721E97 /* .gitignore */,
 				32C511442695806000721E97 /* README.md */,
 				32C5112326957C6300721E97 /* build */,
@@ -206,7 +226,6 @@
 		32E381472683F5230096EB94 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				32C5112426957CE000721E97 /* libgame-engine.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -269,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32C5111D269579A100721E97 /* main.cpp in Sources */,
+				32B597272696924200067C1F /* Entity.cpp in Sources */,
 				32C5111C269579A100721E97 /* GameApp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,8 +421,7 @@
 					"$(PROJECT_DIR)/include/**",
 				);
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/deps/lib",
+					"$(PROJECT_DIR)/deps/libs/**",
 					"$(PROJECT_DIR)/deps/libs",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -421,8 +440,7 @@
 					"$(PROJECT_DIR)/include/**",
 				);
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/deps/lib",
+					"$(PROJECT_DIR)/deps/libs/**",
 					"$(PROJECT_DIR)/deps/libs",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";

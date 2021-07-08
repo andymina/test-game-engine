@@ -14,6 +14,7 @@
 namespace Hunter {
 	class HUNTER_API Sprite {
 	public:
+		Sprite(); // zero param constructor
 		Sprite(const std::string &spritePath);
 		Sprite(const Sprite &other); // copy constructor
 		Sprite(Sprite &&other); // move constructor
@@ -28,8 +29,8 @@ namespace Hunter {
 		
 	private:
 		unsigned char* img{ nullptr };
-		int width;
-		int height;
+		int width{ -1 };
+		int height{ -1 };
 		int numChannels{ 0 };
 	};
 }
