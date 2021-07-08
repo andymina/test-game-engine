@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		32B597272696924200067C1F /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32B597262696924200067C1F /* Entity.cpp */; };
 		32B597562696A14F00067C1F /* libgame-engine.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 32B597542696A14500067C1F /* libgame-engine.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		32B5976F2696A45800067C1F /* libgame-engine.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B597542696A14500067C1F /* libgame-engine.dylib */; };
-		32C5111C269579A100721E97 /* GameApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32C5111A269579A000721E97 /* GameApp.cpp */; };
 		32C5111D269579A100721E97 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32C5111B269579A000721E97 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +36,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		32B597262696924200067C1F /* Entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
+		32AF49D82697AEE400084C5A /* DefaultVertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DefaultVertexShader.glsl; sourceTree = "<group>"; };
+		32AF49D92697AEE400084C5A /* DefaultFragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DefaultFragmentShader.glsl; sourceTree = "<group>"; };
 		32B597412696A13700067C1F /* pch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pch.h; sourceTree = "<group>"; };
 		32B597432696A13700067C1F /* macOSWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macOSWindow.h; sourceTree = "<group>"; };
 		32B597442696A13700067C1F /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
@@ -56,11 +55,8 @@
 		32B597522696A13700067C1F /* OpenGLImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLImplementation.h; sourceTree = "<group>"; };
 		32B597532696A13700067C1F /* OpenGLShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLShader.h; sourceTree = "<group>"; };
 		32B597542696A14500067C1F /* libgame-engine.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = "libgame-engine.dylib"; sourceTree = "<group>"; };
-		32B597592696A1F700067C1F /* mario.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = mario.gif; sourceTree = "<group>"; };
 		32C511182695799A00721E97 /* GameApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameApp.h; sourceTree = "<group>"; };
-		32C5111A269579A000721E97 /* GameApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameApp.cpp; sourceTree = "<group>"; };
 		32C5111B269579A000721E97 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		32C5114326957EAF00721E97 /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		32C511442695806000721E97 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		32C511452695808B00721E97 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		32E3811B2683E67F0096EB94 /* test-game-engine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "test-game-engine"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +74,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32AF49D62697AEE400084C5A /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				32AF49D72697AEE400084C5A /* shaders */,
+				32AF49DA2697AEE400084C5A /* sprites */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		32AF49D72697AEE400084C5A /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				32AF49D82697AEE400084C5A /* DefaultVertexShader.glsl */,
+				32AF49D92697AEE400084C5A /* DefaultFragmentShader.glsl */,
+			);
+			path = shaders;
+			sourceTree = "<group>";
+		};
+		32AF49DA2697AEE400084C5A /* sprites */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = sprites;
+			sourceTree = "<group>";
+		};
 		32B597402696A13700067C1F /* Hunter */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,27 +146,10 @@
 			path = OpenGL;
 			sourceTree = "<group>";
 		};
-		32B597572696A1DC00067C1F /* assets */ = {
-			isa = PBXGroup;
-			children = (
-				32B597582696A1F700067C1F /* sprites */,
-			);
-			path = assets;
-			sourceTree = "<group>";
-		};
-		32B597582696A1F700067C1F /* sprites */ = {
-			isa = PBXGroup;
-			children = (
-				32B597592696A1F700067C1F /* mario.gif */,
-			);
-			path = sprites;
-			sourceTree = "<group>";
-		};
 		32C511172695799A00721E97 /* include */ = {
 			isa = PBXGroup;
 			children = (
 				32C511182695799A00721E97 /* GameApp.h */,
-				32C5114326957EAF00721E97 /* Entity.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -153,9 +157,7 @@
 		32C51119269579A000721E97 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				32C5111A269579A000721E97 /* GameApp.cpp */,
 				32C5111B269579A000721E97 /* main.cpp */,
-				32B597262696924200067C1F /* Entity.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -202,7 +204,7 @@
 		32E381122683E67F0096EB94 = {
 			isa = PBXGroup;
 			children = (
-				32B597572696A1DC00067C1F /* assets */,
+				32AF49D62697AEE400084C5A /* assets */,
 				32C511452695808B00721E97 /* .gitignore */,
 				32C511442695806000721E97 /* README.md */,
 				32C5112326957C6300721E97 /* build */,
@@ -288,8 +290,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				32C5111D269579A100721E97 /* main.cpp in Sources */,
-				32B597272696924200067C1F /* Entity.cpp in Sources */,
-				32C5111C269579A100721E97 /* GameApp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
