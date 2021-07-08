@@ -55,7 +55,6 @@
 		32B597522696A13700067C1F /* OpenGLImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLImplementation.h; sourceTree = "<group>"; };
 		32B597532696A13700067C1F /* OpenGLShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLShader.h; sourceTree = "<group>"; };
 		32B597542696A14500067C1F /* libgame-engine.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = "libgame-engine.dylib"; sourceTree = "<group>"; };
-		32C511182695799A00721E97 /* GameApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameApp.h; sourceTree = "<group>"; };
 		32C5111B269579A000721E97 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		32C511442695806000721E97 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		32C511452695808B00721E97 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -149,7 +148,6 @@
 		32C511172695799A00721E97 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				32C511182695799A00721E97 /* GameApp.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
