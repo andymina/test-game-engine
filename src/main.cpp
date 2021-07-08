@@ -6,12 +6,10 @@
 //
 
 #include <Hunter/Hunter.h>
-// #include "Entity.h"
 
 class GameApp: public Hunter::HunterApp {
 public:
 private:
-//	Entity spaceship;
 };
 
 START_GAME(GameApp);
