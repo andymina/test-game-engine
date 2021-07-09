@@ -15,6 +15,7 @@ enum class Action {
 	MOVE_LEFT,
 	MOVE_RIGHT,
 	MOVE_DOWN,
+	MOVE_UP,
 	SHOOT,
 	NONE
 };
@@ -22,7 +23,14 @@ enum class Action {
 class Entity {
 public:
 	Entity();
-	Entity(const std::string &spritePath, int entitySpeed, Action action);
+	Entity(
+		const std::string &spritePath,
+		const Coords &pos,
+		const int &entitySpeed,
+		const Action &action,
+		const int &windowWidth,
+		const int &windowHeight
+	);
 	
 	Coords GetCoords() const;
 	void SetCoords(Coords coords);
@@ -38,10 +46,12 @@ public:
 	bool CollidesWith(const Entity &other) const;
 	
 private:
-	Action action;
 	Hunter::Sprite img;
 	Coords position;
 	int speed;
+	Action action;
+	int windowWidth;
+	int windowHeight;
 };
 
 #endif /* Entity_h */

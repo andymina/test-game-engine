@@ -5,10 +5,15 @@
 //  Created by Andy Mina on 7/8/21.
 //
 
+#include <Hunter/Hunter.h>
 #include "GameApp.h"
 
 GameApp::GameApp():
-	player("assets/sprites/player.png", 5, Action::NONE) {
+	player("assets/sprites/player.png", { 100, 100 }, 5, Action::NONE, GetWindowWidth(), GetWindowHeight()) {
+}
+
+void GameApp::OnUpdate() {
+	player.Update();
 }
 
 void GameApp::OnKeyPressed(Hunter::KeyPressedEvent &event) {
@@ -17,13 +22,8 @@ void GameApp::OnKeyPressed(Hunter::KeyPressedEvent &event) {
 	} else if (event.GetKeyCode() == HUNTER_KEY_RIGHT) {
 		player.SetAction(Action::MOVE_RIGHT);
 	}
-	
+
 	if (event.GetKeyCode() == HUNTER_KEY_SPACE) {
 		player.SetAction(Action::SHOOT);
 	}
-}
-
-void GameApp::OnUpdate() {
-	player.Update();
-	player.Draw();
 }

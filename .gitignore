@@ -1,4 +1,4 @@
 .DS_Store
 /build
 /obj
-update_include.sh
+update-game-engine.sh

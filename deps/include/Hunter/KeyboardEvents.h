@@ -8,6 +8,7 @@
 #ifndef KeyboardEvents_h
 #define KeyboardEvents_h
 
+#include "HunterCentral.h"
 #include "Event.h"
 
 namespace Hunter {

@@ -11,8 +11,20 @@ Entity::Entity() {
 	
 }
 
-Entity::Entity(const std::string &spritePath, int entitySpeed, Action action):
-	img(spritePath), speed(entitySpeed), action(Action::NONE) {
+Entity::Entity(
+	const std::string &spritePath,
+	const Coords &pos,
+	const int &entitySpeed,
+	const Action &action,
+	const int &windowWidth,
+	const int &windowHeight
+):
+	img(spritePath),
+	position(pos),
+	speed(entitySpeed),
+	action(Action::NONE),
+	windowWidth(windowWidth),
+	windowHeight(windowHeight) {
 	
 }
 
@@ -41,18 +53,23 @@ int Entity::GetHeight() const {
 }
 
 void Entity::Update() {
-	if (action == Action::MOVE_LEFT)
+	if (action == Action::MOVE_LEFT && position.x - speed >= 0)
 		position.x -= speed;
-	else if (action == Action::MOVE_RIGHT)
+	else if (action == Action::MOVE_RIGHT && position.x + speed < windowWidth - img.GetWidth())
 		position.x += speed;
 	else if (action == Action::MOVE_DOWN)
 		position.y -= speed;
-	else if (action == Action::SHOOT)
+	else if (action == Action::MOVE_UP)
+		position.y += speed;
+	
+	if (action == Action::SHOOT)
 		std::cout << "SHOOT ACTION\n";
+	
+	Draw();
 }
 
 void Entity::Draw() const {
-	Hunter::Renderer::Draw(img, position.x, position.y, img.GetWidth(), img.GetWidth());
+	Hunter::Renderer::Draw(img, position.x, position.y, img.GetWidth(), img.GetHeight());
 }
 
 bool Entity::CollidesWith(const Entity &other) const {

@@ -11,10 +11,9 @@
 		32AF49E52697B5C000084C5A /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32AF49E42697B5C000084C5A /* Entity.cpp */; };
 		32AF49EF2697B74300084C5A /* Laser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32AF49EE2697B74300084C5A /* Laser.cpp */; };
 		32AF49F22697B79500084C5A /* Spaceship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32AF49F12697B79500084C5A /* Spaceship.cpp */; };
-		32AF49F52697BAA600084C5A /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32AF49F42697BAA600084C5A /* Player.cpp */; };
 		32AF49F82697C05200084C5A /* Coords.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32AF49F72697C05200084C5A /* Coords.cpp */; };
-		32B597562696A14F00067C1F /* libgame-engine.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 32B597542696A14500067C1F /* libgame-engine.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		32B5976F2696A45800067C1F /* libgame-engine.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B597542696A14500067C1F /* libgame-engine.dylib */; };
+		32AF4A102697FD7900084C5A /* libgame-engine.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 32AF4A0F2697FD7900084C5A /* libgame-engine.dylib */; };
+		32AF4A112697FD7E00084C5A /* libgame-engine.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 32AF4A0F2697FD7900084C5A /* libgame-engine.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		32C5111D269579A100721E97 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32C5111B269579A000721E97 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +24,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				32B597562696A14F00067C1F /* libgame-engine.dylib in Embed Libraries */,
+				32AF4A112697FD7E00084C5A /* libgame-engine.dylib in Embed Libraries */,
 			);
 			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,11 +51,13 @@
 		32AF49EE2697B74300084C5A /* Laser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Laser.cpp; sourceTree = "<group>"; };
 		32AF49F02697B78A00084C5A /* Spaceship.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Spaceship.h; sourceTree = "<group>"; };
 		32AF49F12697B79500084C5A /* Spaceship.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Spaceship.cpp; sourceTree = "<group>"; };
-		32AF49F32697BA9B00084C5A /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
-		32AF49F42697BAA600084C5A /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		32AF49F62697C04600084C5A /* Coords.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Coords.h; sourceTree = "<group>"; };
 		32AF49F72697C05200084C5A /* Coords.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Coords.cpp; sourceTree = "<group>"; };
-		32AF49FA2697D90900084C5A /* update_include.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = update_include.sh; sourceTree = "<group>"; };
+		32AF49FA2697D90900084C5A /* update-game-engine.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "update-game-engine.sh"; sourceTree = "<group>"; };
+		32AF4A072697F06300084C5A /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
+		32AF4A082697F06300084C5A /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
+		32AF4A092697F06300084C5A /* laser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = laser.png; sourceTree = "<group>"; };
+		32AF4A0F2697FD7900084C5A /* libgame-engine.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = "libgame-engine.dylib"; sourceTree = "<group>"; };
 		32B597412696A13700067C1F /* pch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pch.h; sourceTree = "<group>"; };
 		32B597432696A13700067C1F /* macOSWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macOSWindow.h; sourceTree = "<group>"; };
 		32B597442696A13700067C1F /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
@@ -73,7 +74,6 @@
 		32B597502696A13700067C1F /* HunterCentral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HunterCentral.h; sourceTree = "<group>"; };
 		32B597522696A13700067C1F /* OpenGLImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLImplementation.h; sourceTree = "<group>"; };
 		32B597532696A13700067C1F /* OpenGLShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLShader.h; sourceTree = "<group>"; };
-		32B597542696A14500067C1F /* libgame-engine.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = "libgame-engine.dylib"; sourceTree = "<group>"; };
 		32C5111B269579A000721E97 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		32C511442695806000721E97 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		32C511452695808B00721E97 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32B5976F2696A45800067C1F /* libgame-engine.dylib in Frameworks */,
+				32AF4A102697FD7900084C5A /* libgame-engine.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +113,9 @@
 		32AF49DA2697AEE400084C5A /* sprites */ = {
 			isa = PBXGroup;
 			children = (
+				32AF4A082697F06300084C5A /* enemy.png */,
+				32AF4A092697F06300084C5A /* laser.png */,
+				32AF4A072697F06300084C5A /* player.png */,
 			);
 			path = sprites;
 			sourceTree = "<group>";
@@ -124,7 +127,6 @@
 				32AF49E62697B5E000084C5A /* Entity.h */,
 				32AF49ED2697B73600084C5A /* Laser.h */,
 				32AF49F02697B78A00084C5A /* Spaceship.h */,
-				32AF49F32697BA9B00084C5A /* Player.h */,
 				32AF49F62697C04600084C5A /* Coords.h */,
 			);
 			path = include;
@@ -185,7 +187,6 @@
 				32AF49E42697B5C000084C5A /* Entity.cpp */,
 				32AF49EE2697B74300084C5A /* Laser.cpp */,
 				32AF49F12697B79500084C5A /* Spaceship.cpp */,
-				32AF49F42697BAA600084C5A /* Player.cpp */,
 				32AF49F72697C05200084C5A /* Coords.cpp */,
 			);
 			path = src;
@@ -217,7 +218,7 @@
 		32C5112B26957D0600721E97 /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				32B597542696A14500067C1F /* libgame-engine.dylib */,
+				32AF4A0F2697FD7900084C5A /* libgame-engine.dylib */,
 			);
 			path = libs;
 			sourceTree = "<group>";
@@ -233,7 +234,7 @@
 		32E381122683E67F0096EB94 = {
 			isa = PBXGroup;
 			children = (
-				32AF49FA2697D90900084C5A /* update_include.sh */,
+				32AF49FA2697D90900084C5A /* update-game-engine.sh */,
 				32AF49D62697AEE400084C5A /* assets */,
 				32C511452695808B00721E97 /* .gitignore */,
 				32C511442695806000721E97 /* README.md */,
@@ -321,7 +322,6 @@
 			files = (
 				32C5111D269579A100721E97 /* main.cpp in Sources */,
 				32AF49EF2697B74300084C5A /* Laser.cpp in Sources */,
-				32AF49F52697BAA600084C5A /* Player.cpp in Sources */,
 				32AF49F82697C05200084C5A /* Coords.cpp in Sources */,
 				32AF49E52697B5C000084C5A /* Entity.cpp in Sources */,
 				32AF49F22697B79500084C5A /* Spaceship.cpp in Sources */,

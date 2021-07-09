@@ -11,7 +11,6 @@
 #include <deque>
 #include <Hunter/Hunter.h>
 #include "Spaceship.h"
-#include "Player.h"
 
 class GameApp: public Hunter::HunterApp {
 public:
@@ -20,8 +19,8 @@ public:
 	virtual void OnUpdate() override;
 	virtual void OnKeyPressed(Hunter::KeyPressedEvent &event) override;
 	
-private:
-	Player player;
+public:
+	Spaceship player;
 	std::deque<Spaceship> enemies;
 };
 
