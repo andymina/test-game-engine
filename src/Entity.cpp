@@ -5,14 +5,14 @@
 //  Created by Andy Mina on 7/7/21.
 //
 
-#include <Hunter/Hunter.h>
 #include "Entity.h"
 
 Entity::Entity() {
 	
 }
 
-Entity::Entity(const std::string &spritePath, int entitySpeed): img(spritePath), speed(entitySpeed) {
+Entity::Entity(const std::string &spritePath, int entitySpeed, Action action):
+	img(spritePath), speed(entitySpeed), action(Action::NONE) {
 	
 }
 
@@ -24,12 +24,31 @@ void Entity::SetCoords(Coords coords) {
 	position = coords;
 }
 
+Action Entity::GetAction() const {
+	return action;
+}
+
+void Entity::SetAction(Action newAction) {
+	action = newAction;
+}
+
 int Entity::GetWidth() const {
 	return img.GetWidth();
 }
 
 int Entity::GetHeight() const {
 	return img.GetHeight();
+}
+
+void Entity::Update() {
+	if (action == Action::MOVE_LEFT)
+		position.x -= speed;
+	else if (action == Action::MOVE_RIGHT)
+		position.x += speed;
+	else if (action == Action::MOVE_DOWN)
+		position.y -= speed;
+	else if (action == Action::SHOOT)
+		std::cout << "SHOOT ACTION\n";
 }
 
 void Entity::Draw() const {

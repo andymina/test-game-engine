@@ -6,10 +6,6 @@
 //
 
 #include <Hunter/Hunter.h>
-
-class GameApp: public Hunter::HunterApp {
-public:
-private:
-};
+#include "GameApp.h"
 
 START_GAME(GameApp);
