@@ -28,7 +28,10 @@ namespace Hunter {
 		static int GetWindowWidth();
 		static int GetWindowHeight();
 		
+		// Key events
 		virtual void OnKeyPressed(KeyPressedEvent &event);
+		virtual void OnKeyHeld(KeyHeldEvent &event);
+		virtual void OnKeyReleased(KeyReleasedEvent &event);
 		
 	protected: // open to children classes only
 		HunterApp();
@@ -38,7 +41,7 @@ namespace Hunter {
 		inline static HunterApp* instance{ nullptr };
 		Hunter::Window* appWindow{ nullptr };
 		clock::time_point nextFrameTime;
-		std::chrono::milliseconds frameDuration{ 16 }; // default to 60 FPS
+		std::chrono::milliseconds frameDuration{ 32 }; // default to 60 FPS
 	};
 }
 

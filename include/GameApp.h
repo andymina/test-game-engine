@@ -18,6 +18,8 @@ public:
 	
 	virtual void OnUpdate() override;
 	virtual void OnKeyPressed(Hunter::KeyPressedEvent &event) override;
+	virtual void OnKeyHeld(Hunter::KeyHeldEvent &event) override;
+	virtual void OnKeyReleased(Hunter::KeyReleasedEvent &event) override;
 	
 public:
 	Spaceship player;

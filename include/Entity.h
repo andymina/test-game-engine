@@ -12,10 +12,10 @@
 #include "Coords.h"
 
 enum class Action {
-	MOVE_LEFT,
-	MOVE_RIGHT,
-	MOVE_DOWN,
-	MOVE_UP,
+	MOVE_LEFT, HOLD_LEFT,
+	MOVE_RIGHT, HOLD_RIGHT,
+	MOVE_DOWN, HOLD_DOWN,
+	MOVE_UP, HOLD_UP,
 	SHOOT,
 	NONE
 };

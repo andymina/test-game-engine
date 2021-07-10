@@ -53,18 +53,37 @@ int Entity::GetHeight() const {
 }
 
 void Entity::Update() {
-	if (action == Action::MOVE_LEFT && position.x - speed >= 0)
-		position.x -= speed;
-	else if (action == Action::MOVE_RIGHT && position.x + speed < windowWidth - img.GetWidth())
-		position.x += speed;
-	else if (action == Action::MOVE_DOWN)
-		position.y -= speed;
-	else if (action == Action::MOVE_UP)
-		position.y += speed;
-	
-	if (action == Action::SHOOT)
+	// handle shoot
+	if (action == Action::SHOOT) {
 		std::cout << "SHOOT ACTION\n";
+		action = Action::NONE;
+	}
 	
+	// handle moves
+	if (action == Action::MOVE_LEFT || action == Action::HOLD_LEFT) {
+		if (position.x - speed >= 0)
+			position.x -= speed;
+		
+		if (action == Action::MOVE_LEFT)
+			action = Action::NONE;
+		else if (action == Action::HOLD_LEFT)
+			action = Action::MOVE_LEFT;
+	} else if (action == Action::MOVE_RIGHT || action == Action::HOLD_RIGHT) {
+		if (position.x + speed <= windowWidth - img.GetWidth())
+			position.x += speed;
+		
+		if (action == Action::MOVE_RIGHT)
+			action = Action::NONE;
+		else if (action == Action::HOLD_RIGHT)
+			action = Action::MOVE_RIGHT;
+	} else if (action == Action::MOVE_DOWN) {
+		position.y -= speed;
+		action = Action::NONE;
+	} else if (action == Action::MOVE_UP) {
+		position.y += speed;
+		action = Action::NONE;
+	}
+		
 	Draw();
 }
 

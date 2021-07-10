@@ -21,6 +21,15 @@ namespace Hunter {
 		int KeyCode{ -1 };
 	};
 	
+	class HUNTER_API KeyHeldEvent: public Event {
+	public:
+		KeyHeldEvent(int key);
+		int GetKeyCode() const;
+		
+	private:
+		int KeyCode{ -1 };
+	};
+	
 	class HUNTER_API KeyReleasedEvent: public Event {
 	public:
 		KeyReleasedEvent(int key);
