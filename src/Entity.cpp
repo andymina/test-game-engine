@@ -15,7 +15,6 @@ Entity::Entity(
 	const std::string &spritePath,
 	const Coords &pos,
 	const int &entitySpeed,
-	const Action &action,
 	const int &windowWidth,
 	const int &windowHeight
 ):
@@ -52,15 +51,14 @@ int Entity::GetHeight() const {
 	return img.GetHeight();
 }
 
-void Entity::Update() {
-	// handle shoot
-	if (action == Action::SHOOT) {
-		std::cout << "SHOOT ACTION\n";
-		action = Action::NONE;
-	}
-	
+void Entity::SetNewSprite(const std::string &spritePath) {
+	img.Load(spritePath);
+}
+
+void Entity::HandleMove() {
 	// handle moves
 	if (action == Action::MOVE_LEFT || action == Action::HOLD_LEFT) {
+		// check if will be in bounds
 		if (position.x - speed >= 0)
 			position.x -= speed;
 		
@@ -69,7 +67,7 @@ void Entity::Update() {
 		else if (action == Action::HOLD_LEFT)
 			action = Action::MOVE_LEFT;
 	} else if (action == Action::MOVE_RIGHT || action == Action::HOLD_RIGHT) {
-		if (position.x + speed <= windowWidth - img.GetWidth())
+		if (position.x + speed <= windowWidth - GetWidth())
 			position.x += speed;
 		
 		if (action == Action::MOVE_RIGHT)
@@ -83,8 +81,6 @@ void Entity::Update() {
 		position.y += speed;
 		action = Action::NONE;
 	}
-		
-	Draw();
 }
 
 void Entity::Draw() const {

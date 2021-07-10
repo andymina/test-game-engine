@@ -9,11 +9,27 @@
 #include "GameApp.h"
 
 GameApp::GameApp():
-	player("assets/sprites/player.png", { 100, 100 }, 50, Action::NONE, GetWindowWidth(), GetWindowHeight()) {
+	playerSprite("assets/sprites/player.png"),
+	enemySprite("assets/sprites/enemy.png"),
+	player(
+		playerSprite, { 100, 100 }, 50,
+		GetWindowWidth(), GetWindowHeight()
+	) {
+	
 }
 
 void GameApp::OnUpdate() {
+	if (frameNumber % 15 == 0 && enemies.size() < 3) {
+		enemies.emplace_back(enemySprite, Coords({ int(100 + (enemies.size() * 50)), 200 }), 50, GetWindowWidth(), GetWindowHeight());
+	}
+	
+	for (Spaceship &enemy: enemies)
+		enemy.Update();
 	player.Update();
+	
+	for (Spaceship &enemy: enemies)
+		enemy.Draw();
+	player.Draw();
 }
 
 void GameApp::OnKeyPressed(Hunter::KeyPressedEvent &event) {

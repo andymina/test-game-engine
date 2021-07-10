@@ -21,9 +21,13 @@ public:
 	virtual void OnKeyHeld(Hunter::KeyHeldEvent &event) override;
 	virtual void OnKeyReleased(Hunter::KeyReleasedEvent &event) override;
 	
-public:
+private:
+	const std::string playerSprite;
+	const std::string enemySprite;
 	Spaceship player;
-	std::deque<Spaceship> enemies;
+	std::deque<Spaceship> enemies;	
+	
+	long long frameNumber;
 };
 
 

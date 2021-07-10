@@ -16,7 +16,7 @@ enum class Action {
 	MOVE_RIGHT, HOLD_RIGHT,
 	MOVE_DOWN, HOLD_DOWN,
 	MOVE_UP, HOLD_UP,
-	SHOOT,
+	SHOOT, EXPLODE,
 	NONE
 };
 
@@ -27,10 +27,14 @@ public:
 		const std::string &spritePath,
 		const Coords &pos,
 		const int &entitySpeed,
-		const Action &action,
 		const int &windowWidth,
 		const int &windowHeight
 	);
+	
+	Entity(const Entity & other) = delete;
+	Entity(Entity &&other) = delete;
+	Entity& operator=(const Entity &rhs) = delete;
+	Entity& operator=(Entity &&rhs) = delete;	
 	
 	Coords GetCoords() const;
 	void SetCoords(Coords coords);
@@ -38,14 +42,14 @@ public:
 	int GetHeight() const;
 	Action GetAction() const;
 	void SetAction(Action newAction);
-	int GetSpeed() const;
-	void SetSpeed() const;
+	void SetNewSprite(const std::string &spritePath);
 	
-	void Update();
+	virtual void Update() = 0;
+	void HandleMove();
 	void Draw() const;
 	bool CollidesWith(const Entity &other) const;
 	
-private:
+protected:
 	Hunter::Sprite img;
 	Coords position;
 	int speed;

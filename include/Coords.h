@@ -14,6 +14,7 @@ public:
 	
 	Coords() = default;
 	Coords(int x, int y);
+	~Coords() = default;
 		
 	const Coords operator+(const Coords &rhs);
 	const Coords operator-(const Coords &rhs);

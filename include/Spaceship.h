@@ -12,9 +12,28 @@
 
 class Spaceship: public Entity {
 public:
-	using Entity::Entity;
+	Spaceship();
+	Spaceship(
+		const std::string &spritePath,
+		const Coords &pos,
+		const int &entitySpeed,
+		const int &windowWidth,
+		const int &windowHeight,
+		const int &health = 3
+	);
+	
+	Spaceship(const Spaceship & other) = delete;
+	Spaceship(Spaceship &&other) = delete;
+	Spaceship& operator=(const Spaceship &rhs) = delete;
+	Spaceship& operator=(Spaceship &&rhs) = delete;
+	
+	virtual void Update() override;
+	void InflictDamage(const int &dmg);
+	void Explode();
 	
 private:
+	std::string explodeSprite;
+	int health;	
 };
 
 #endif /* Spaceship_h */
