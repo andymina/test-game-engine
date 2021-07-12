@@ -12,8 +12,10 @@
 	<string>RelativeToWorkspace</string>
 	<key>CustomBuildProductsPath</key>
 	<string>build</string>
+	<key>DerivedDataCustomLocation</key>
+	<string>build</string>
 	<key>DerivedDataLocationStyle</key>
-	<string>Default</string>
+	<string>WorkspaceRelativePath</string>
 	<key>IssueFilterStyle</key>
 	<string>ShowActiveSchemeOnly</string>
 	<key>LiveSourceIssuesEnabled</key>

@@ -80,10 +80,9 @@ void Entity::HandleMove() {
 		else if (action == Action::BOOST_RIGHT)
 			action = Action::MOVE_RIGHT;
 	} else if (action == Action::MOVE_DOWN) {
-		if (position.y - speed >= -GetWidth())
 			position.y -= speed;
 		
-		if (position.y <= -GetWidth())
+		if (position.y <= -GetHeight())
 			action = Action::DEAD; // kill offscreen entities
 		else
 			action = Action::NONE;

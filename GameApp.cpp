@@ -21,9 +21,12 @@ GameApp::GameApp():
 	earth(earthSprite, { 100, 100 }, 0, GetWindowWidth(), GetWindowHeight()),
 	gameOver(gameOverSprite),
 	endGame(false),
-	frameNumber(0) {
+	frameNumber(0)
+{
+	// properly set player coords
+	player->SetCoords({ (GetWindowWidth() / 2) - (GetWindowWidth() / 2) % 50, 100 });
 	// properly set earths coordinates now that it's size is known
-		earth.SetCoords({(GetWindowWidth() - earth.GetWidth()) / 2, -earth.GetHeight() + 100});
+	earth.SetCoords({(GetWindowWidth() - earth.GetWidth()) / 2, -earth.GetHeight() + 100});
 }
 
 void GameApp::OnUpdate() {
@@ -46,17 +49,43 @@ void GameApp::OnUpdate() {
 			}
 		}
 		
-		// clear dead enemies (offscreen)
+		// clear dead enemies
 		for (int i = enemies.size() - 1; i >= 0; i--) {
 			Spaceship &enemy = enemies[i];
 			if (enemy.GetAction() == Action::DEAD) {
 				enemies.erase(enemies.begin() + i);
 			}
+			
+			// if there's still enemies, continue moving down
+			if (frameNumber % 30 == 0)
+				enemy.SetAction(Action::MOVE_DOWN);
+		}
+		
+		
+		// process enemy collisions
+		for (Spaceship &enemy: enemies) {
+			// process laser collisions
+			for (int i = lasers.size() - 1; i >= 0; i--) {
+				Laser &laser = lasers[i];
+				
+				if (enemy.CollidesWith(laser)) {
+					// dmg ship if a laser hits
+					laser.InflictDamage(enemy);
+					// delete laser after collision
+					lasers.erase(lasers.begin() + i);
+				}
+			}
 		}
 		
 		// update remaining enemies and lasers
-		for (Spaceship &enemy: enemies)
+		for (Spaceship &enemy: enemies) {
+			// process player collision
+			if (player && player->GetCoords().x == enemy.GetCoords().x && player->GetCoords().y == enemy.GetCoords().y) {
+				player->SetAction(Action::EXPLODE);
+			}
+			
 			enemy.Update();
+		}			
 		
 		for (Laser &laser: lasers)
 			laser.Update();
@@ -67,6 +96,9 @@ void GameApp::OnUpdate() {
 		
 		for (const Laser &laser: lasers)
 			laser.Draw();
+		
+		frameNumber++;
+		return;
 	}
 
 	// clear old lasers
@@ -87,7 +119,7 @@ void GameApp::OnUpdate() {
 		for (int i = lasers.size() - 1; i >= 0; i--) {
 			Laser &laser = lasers[i];
 			
-			if (laser.CollidesWith(enemy)) {
+			if (enemy.CollidesWith(laser)) {
 				// dmg ship if a laser hits
 				laser.InflictDamage(enemy);
 				// delete laser after collision
@@ -96,8 +128,10 @@ void GameApp::OnUpdate() {
 		}
 		
 		// process player collision
-		if (player->GetCoords().x == enemy.GetCoords().x && player->GetCoords().y == enemy.GetCoords().y) {
-			player->SetAction(Action::EXPLODE);
+		if (enemy.GetCoords().y <= player->GetCoords().y) {
+			// if enemy and player share a space, explode player
+			if (player->GetCoords().x == enemy.GetCoords().x)
+				player->SetAction(Action::EXPLODE);
 			endGame = true;
 		} else if (earth.CollidesWith(enemy)) { // process earth collision
 			endGame = true;
