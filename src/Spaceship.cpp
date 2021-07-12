@@ -22,32 +22,27 @@ Spaceship::Spaceship(
 		windowWidth,
 		windowHeight
 	),
-	explodeSprite("assets/sprites/explode.png"),
 	health(health) {
 	
+		
 }
 
 void Spaceship::Update() {
 	if (action == Action::EXPLODE) {
-		SetNewSprite(explodeSprite);
-		action = Action::NONE;
-	}
-	
-	if (action == Action::SHOOT) {
-		InflictDamage(1);
-		action = Action::NONE;
-	}
-	
-	HandleMove();
+		Explode();
+	} else if (health >= 1)
+		HandleMove();
 }
 
 void Spaceship::InflictDamage(const int &dmg) {
-	if (health > 0)
+	if (health >= 1)
 		health -= dmg;
-	else if (health <= 0)
-		action = Action::EXPLODE;
+	
+	if (health <= 0)
+		SetAction(Action::EXPLODE);
 }
 
 void Spaceship::Explode() {
-	img.Load(explodeSprite);
+	SetNewSprite(explodeSprite);
+	SetAction(Action::DEAD);
 }

@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		32AF49E32697B20200084C5A /* GameApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32AF49E22697B20200084C5A /* GameApp.cpp */; };
 		32AF49E52697B5C000084C5A /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32AF49E42697B5C000084C5A /* Entity.cpp */; };
-		32AF49EF2697B74300084C5A /* Laser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32AF49EE2697B74300084C5A /* Laser.cpp */; };
 		32AF49F22697B79500084C5A /* Spaceship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32AF49F12697B79500084C5A /* Spaceship.cpp */; };
 		32AF49F82697C05200084C5A /* Coords.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32AF49F72697C05200084C5A /* Coords.cpp */; };
 		32AF4A102697FD7900084C5A /* libgame-engine.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 32AF4A0F2697FD7900084C5A /* libgame-engine.dylib */; };
 		32AF4A112697FD7E00084C5A /* libgame-engine.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 32AF4A0F2697FD7900084C5A /* libgame-engine.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		32B87EC5269B943F00CB2F00 /* Laser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32B87EC4269B943F00CB2F00 /* Laser.cpp */; };
 		32C5111D269579A100721E97 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32C5111B269579A000721E97 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -47,8 +47,6 @@
 		32AF49E22697B20200084C5A /* GameApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameApp.cpp; sourceTree = SOURCE_ROOT; };
 		32AF49E42697B5C000084C5A /* Entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
 		32AF49E62697B5E000084C5A /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
-		32AF49ED2697B73600084C5A /* Laser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Laser.h; sourceTree = "<group>"; };
-		32AF49EE2697B74300084C5A /* Laser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Laser.cpp; sourceTree = "<group>"; };
 		32AF49F02697B78A00084C5A /* Spaceship.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Spaceship.h; sourceTree = "<group>"; };
 		32AF49F12697B79500084C5A /* Spaceship.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Spaceship.cpp; sourceTree = "<group>"; };
 		32AF49F62697C04600084C5A /* Coords.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Coords.h; sourceTree = "<group>"; };
@@ -74,6 +72,8 @@
 		32B597502696A13700067C1F /* HunterCentral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HunterCentral.h; sourceTree = "<group>"; };
 		32B597522696A13700067C1F /* OpenGLImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLImplementation.h; sourceTree = "<group>"; };
 		32B597532696A13700067C1F /* OpenGLShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLShader.h; sourceTree = "<group>"; };
+		32B87EC3269B93F300CB2F00 /* Laser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Laser.h; sourceTree = "<group>"; };
+		32B87EC4269B943F00CB2F00 /* Laser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Laser.cpp; sourceTree = "<group>"; };
 		32C5111B269579A000721E97 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		32C511442695806000721E97 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		32C511452695808B00721E97 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -125,9 +125,9 @@
 			children = (
 				32AF49E12697B16800084C5A /* GameApp.h */,
 				32AF49E62697B5E000084C5A /* Entity.h */,
-				32AF49ED2697B73600084C5A /* Laser.h */,
 				32AF49F02697B78A00084C5A /* Spaceship.h */,
 				32AF49F62697C04600084C5A /* Coords.h */,
+				32B87EC3269B93F300CB2F00 /* Laser.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -185,9 +185,9 @@
 				32C5111B269579A000721E97 /* main.cpp */,
 				32AF49E22697B20200084C5A /* GameApp.cpp */,
 				32AF49E42697B5C000084C5A /* Entity.cpp */,
-				32AF49EE2697B74300084C5A /* Laser.cpp */,
 				32AF49F12697B79500084C5A /* Spaceship.cpp */,
 				32AF49F72697C05200084C5A /* Coords.cpp */,
+				32B87EC4269B943F00CB2F00 /* Laser.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -321,9 +321,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				32C5111D269579A100721E97 /* main.cpp in Sources */,
-				32AF49EF2697B74300084C5A /* Laser.cpp in Sources */,
 				32AF49F82697C05200084C5A /* Coords.cpp in Sources */,
 				32AF49E52697B5C000084C5A /* Entity.cpp in Sources */,
+				32B87EC5269B943F00CB2F00 /* Laser.cpp in Sources */,
 				32AF49F22697B79500084C5A /* Spaceship.cpp in Sources */,
 				32AF49E32697B20200084C5A /* GameApp.cpp in Sources */,
 			);

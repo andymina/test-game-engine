@@ -8,6 +8,7 @@
 #ifndef Spaceship_h
 #define Spaceship_h
 
+#include <deque>
 #include "Entity.h"
 
 class Spaceship: public Entity {
@@ -32,8 +33,9 @@ public:
 	void Explode();
 	
 private:
-	std::string explodeSprite;
-	int health;	
+	const std::string explodeSprite = "assets/sprites/explode.png";
+	int health;
+	
 };
 
 #endif /* Spaceship_h */

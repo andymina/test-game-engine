@@ -16,12 +16,13 @@ Entity::Entity(
 	const Coords &pos,
 	const int &entitySpeed,
 	const int &windowWidth,
-	const int &windowHeight
+	const int &windowHeight,
+	const Action &action
 ):
 	img(spritePath),
 	position(pos),
 	speed(entitySpeed),
-	action(Action::NONE),
+	action(action),
 	windowWidth(windowWidth),
 	windowHeight(windowHeight) {
 	
@@ -51,8 +52,12 @@ int Entity::GetHeight() const {
 	return img.GetHeight();
 }
 
-void Entity::SetNewSprite(const std::string &spritePath) {
-	img.Load(spritePath);
+int Entity::GetSpeed() const {
+	return speed;
+}
+
+void Entity::SetNewSprite(const std::string &newSprite) {
+	img.Load(newSprite);
 }
 
 void Entity::HandleMove() {
@@ -83,15 +88,43 @@ void Entity::HandleMove() {
 	}
 }
 
+void Entity::Update() {
+	
+}
+
+void Entity::Destroy() {
+	SetAction(Action::DEAD);
+}
+
 void Entity::Draw() const {
 	Hunter::Renderer::Draw(img, position.x, position.y, img.GetWidth(), img.GetHeight());
 }
 
+// checks if this entity collided with other
 bool Entity::CollidesWith(const Entity &other) const {
-	const bool leftEdge = other.position.x >= this->position.x && other.position.x <= this->position.x + this->GetWidth();
-	const bool rightEdge = other.position.x + other.GetWidth() >= this->position.x && other.position.x + other.GetWidth() <= this->position.x + this->GetWidth();
-	const bool bottomEdge = other.position.y >= this->position.y && other.position.y <= this->position.y + this->GetHeight();
-	const bool topEdge = other.position.y + other.GetHeight() >= this->position.y && other.position.y + other.GetHeight() <= this->position.y + this->GetHeight();
+//	const bool leftEdge = other.position.x >= this->position.x && other.position.x <= this->position.x + this->GetWidth();
+//	const bool rightEdge = other.position.x + other.GetWidth() >= this->position.x && other.position.x + other.GetWidth() <= this->position.x + this->GetWidth();
+//	const bool bottomEdge = other.position.y >= this->position.y && other.position.y <= this->position.y + this->GetHeight();
+//	const bool topEdge = other.position.y + other.GetHeight() >= this->position.y && other.position.y + other.GetHeight() <= this->position.y + this->GetHeight();
 	
-	return leftEdge || rightEdge || bottomEdge || topEdge;
+//	const bool xCollide = (position.x <= other.position.x && other.position.x <= position.x + GetWidth()) ||
+//	(position.x <= other.position.x + other.GetWidth() && other.position.x + other.GetWidth() <= position.x + GetWidth());
+//
+//	const bool yCollide = (position.y <= other.position.y && other.position.y <= position.y + GetHeight()) ||
+//	(position.y <= other.position.y + other.GetHeight() && other.position.y + other.GetHeight() <= position.y + GetHeight());
+//
+//	return xCollide && yCollide;
+	
+	
+		if ((position.x <= other.position.x && other.position.x <= position.x + GetWidth()) ||
+			(position.x <= other.position.x + other.GetWidth() && other.position.x + other.GetWidth() <= position.x + GetWidth())) {
+			if ((position.y <= other.position.y && other.position.y <= position.y + GetHeight()) ||
+					(position.y <= other.position.y + other.GetHeight() && other.position.y + other.GetHeight() <= position.y + GetHeight())) {
+				return true;
+			}
+		}
+	
+		
+	
+	return false;
 }

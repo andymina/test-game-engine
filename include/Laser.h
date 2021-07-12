@@ -2,27 +2,21 @@
 //  Laser.h
 //  test-game-engine
 //
-//  Created by Andy Mina on 7/8/21.
+//  Created by Andy Mina on 7/11/21.
 //
 
 #ifndef Laser_h
 #define Laser_h
 
-#include "Spaceship.h"
+#include <deque>
 #include "Entity.h"
+#include "Spaceship.h"
 
 class Laser: public Entity {
 public:
-	Laser();
-	Laser(
-		const std::string &spritePath,
-		const Coords &pos,
-		const int &entitySpeed,
-		const int &windowWidth,
-		const int &windowHeight
-	);
-	~Laser();
+	using Entity::Entity;
 	
+	void Update();
 	void InflictDamage(Spaceship &spaceship);
 };
 

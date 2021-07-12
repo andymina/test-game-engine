@@ -9,8 +9,10 @@
 #define GameApp_h
 
 #include <deque>
+#include <vector>
 #include <Hunter/Hunter.h>
 #include "Spaceship.h"
+#include "Laser.h"
 
 class GameApp: public Hunter::HunterApp {
 public:
@@ -21,12 +23,22 @@ public:
 	virtual void OnKeyHeld(Hunter::KeyHeldEvent &event) override;
 	virtual void OnKeyReleased(Hunter::KeyReleasedEvent &event) override;
 	
-private:
-	const std::string playerSprite;
-	const std::string enemySprite;
-	Spaceship player;
-	std::deque<Spaceship> enemies;	
+	void GameOver();
 	
+private:
+	const std::string playerSprite = "assets/sprites/player.png";
+	const std::string enemySprite = "assets/sprites/enemy.png";
+	const std::string laserSprite = "assets/sprites/laser.png";
+	const std::string earthSprite = "assets/sprites/earth.png";
+	const std::string gameOverSprite = "assets/sprites/game-over.png";
+	
+	Spaceship *player;
+	std::vector<Spaceship> enemies;
+	std::deque<Laser> lasers;
+	Hunter::Sprite earth;
+	Hunter::Sprite gameOver;
+	
+	bool endGame;
 	long long frameNumber;
 };
 
