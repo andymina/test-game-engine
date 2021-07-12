@@ -4,8 +4,6 @@
 <dict>
 	<key>BuildLocationStyle</key>
 	<string>CustomLocation</string>
-	<key>BuildSystemType</key>
-	<string>Original</string>
 	<key>CustomBuildIntermediatesPath</key>
 	<string>obj</string>
 	<key>CustomBuildLocationType</key>

@@ -26,11 +26,11 @@ public:
 	void GameOver();
 	
 private:
-	const std::string playerSprite = "assets/sprites/player.png";
-	const std::string enemySprite = "assets/sprites/enemy.png";
-	const std::string laserSprite = "assets/sprites/laser.png";
-	const std::string earthSprite = "assets/sprites/earth.png";
-	const std::string gameOverSprite = "assets/sprites/game-over.png";
+	std::string playerSprite = "assets/sprites/player.png";
+	std::string enemySprite = "assets/sprites/enemy.png";
+	std::string laserSprite = "assets/sprites/laser.png";
+	std::string earthSprite = "assets/sprites/earth.png";
+	std::string gameOverSprite = "assets/sprites/game-over.png";
 	
 	Spaceship *player;
 	std::vector<Spaceship> enemies;

@@ -32,12 +32,6 @@ public:
 		const Action &action = Action::NONE
 	);
 	
-	Entity(const Entity & other);
-	Entity(Entity &&other);
-	Entity& operator=(const Entity &rhs) = delete;
-	Entity& operator=(Entity &&rhs) = delete;	
-	
-	
 	Coords GetCoords() const;
 	void SetCoords(Coords coords);
 	int GetWidth() const;
