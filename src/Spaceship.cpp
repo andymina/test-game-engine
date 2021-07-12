@@ -32,8 +32,11 @@ Spaceship::Spaceship(
 }
 
 void Spaceship::Update() {
-	if (action == Action::EXPLODE) {
+	if (action == Action::DEAD){
+		return;
+	} else if (action == Action::EXPLODE) {
 		Explode();
+		return;
 	} else if (health >= 1)
 		HandleMove();
 }

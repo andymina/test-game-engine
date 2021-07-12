@@ -62,26 +62,31 @@ void Entity::SetNewSprite(const std::string &newSprite) {
 
 void Entity::HandleMove() {
 	// handle moves
-	if (action == Action::MOVE_LEFT || action == Action::HOLD_LEFT) {
+	if (action == Action::MOVE_LEFT || action == Action::BOOST_LEFT) {
 		// check if will be in bounds
 		if (position.x - speed >= 0)
 			position.x -= speed;
 		
 		if (action == Action::MOVE_LEFT)
 			action = Action::NONE;
-		else if (action == Action::HOLD_LEFT)
+		else if (action == Action::BOOST_LEFT)
 			action = Action::MOVE_LEFT;
-	} else if (action == Action::MOVE_RIGHT || action == Action::HOLD_RIGHT) {
+	} else if (action == Action::MOVE_RIGHT || action == Action::BOOST_RIGHT) {
 		if (position.x + speed <= windowWidth - GetWidth())
 			position.x += speed;
 		
 		if (action == Action::MOVE_RIGHT)
 			action = Action::NONE;
-		else if (action == Action::HOLD_RIGHT)
+		else if (action == Action::BOOST_RIGHT)
 			action = Action::MOVE_RIGHT;
 	} else if (action == Action::MOVE_DOWN) {
-		position.y -= speed;
-		action = Action::NONE;
+		if (position.y - speed >= -GetWidth())
+			position.y -= speed;
+		
+		if (position.y <= -GetWidth())
+			action = Action::DEAD; // kill offscreen entities
+		else
+			action = Action::NONE;
 	} else if (action == Action::MOVE_UP) {
 		position.y += speed;
 		action = Action::NONE;

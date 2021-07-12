@@ -18,40 +18,129 @@ GameApp::GameApp():
 			GetWindowHeight()
 		)
 	),
-	earth(earthSprite),
+	earth(earthSprite, { 100, 100 }, 0, GetWindowWidth(), GetWindowHeight()),
 	gameOver(gameOverSprite),
 	endGame(false),
 	frameNumber(0) {
-	
+	// properly set earths coordinates now that it's size is known
+		earth.SetCoords({(GetWindowWidth() - earth.GetWidth()) / 2, -earth.GetHeight() + 100});
 }
 
 void GameApp::OnUpdate() {
 	// draw earth
-	Hunter::Renderer::Draw(earth, (GetWindowWidth() - earth.GetWidth()) / 2, -earth.GetHeight() + 100, earth.GetWidth(), earth.GetHeight());
-
-	// end game if player is dead
-	if (player->GetAction() == Action::DEAD)
-		endGame = true;
-
-	// game over code
+	earth.Draw();
+	
 	if (endGame) {
 		int x_pos = (GetWindowWidth() - gameOver.GetWidth()) / 2;
 		int y_pos = (GetWindowHeight() - gameOver.GetHeight()) / 2;
 		Hunter::Renderer::Draw(gameOver, x_pos, y_pos, gameOver.GetWidth(), gameOver.GetHeight());
+		
+		// handle potentially dead player
+		if (player) {
+			if (player->GetAction() == Action::DEAD) {
+				delete player;
+				player = nullptr;
+			} else {
+				player->Update();
+				player->Draw();
+			}
+		}
+		
+		// clear dead enemies (offscreen)
+		for (int i = enemies.size() - 1; i >= 0; i--) {
+			Spaceship &enemy = enemies[i];
+			if (enemy.GetAction() == Action::DEAD) {
+				enemies.erase(enemies.begin() + i);
+			}
+		}
+		
+		// update remaining enemies and lasers
+		for (Spaceship &enemy: enemies)
+			enemy.Update();
+		
+		for (Laser &laser: lasers)
+			laser.Update();
+		
+		// draw remaining enemies and lasers
+		for (const Spaceship &enemy: enemies)
+			enemy.Draw();
+		
+		for (const Laser &laser: lasers)
+			laser.Draw();
 	}
 
 	// clear old lasers
 	while (!lasers.empty() && lasers.front().GetCoords().y >= GetWindowHeight())
 		lasers.pop_front();
+	
+	// clear dead enemies
+	for (int i = enemies.size() - 1; i >= 0; i--) {
+		Spaceship &enemy = enemies[i];
+		if (enemy.GetAction() == Action::DEAD) {
+			enemies.erase(enemies.begin() + i);
+		}
+	}
+	
+	// process enemy collisions
+	for (Spaceship &enemy: enemies) {
+		// process laser collisions
+		for (int i = lasers.size() - 1; i >= 0; i--) {
+			Laser &laser = lasers[i];
+			
+			if (laser.CollidesWith(enemy)) {
+				// dmg ship if a laser hits
+				laser.InflictDamage(enemy);
+				// delete laser after collision
+				lasers.erase(lasers.begin() + i);
+			}
+		}
+		
+		// process player collision
+		if (player->GetCoords().x == enemy.GetCoords().x && player->GetCoords().y == enemy.GetCoords().y) {
+			player->SetAction(Action::EXPLODE);
+			endGame = true;
+		} else if (earth.CollidesWith(enemy)) { // process earth collision
+			endGame = true;
+		}
+	}
+	
+	// every second...
+	if (frameNumber % (30 * 1) == 0){
+		// gen a new enemy if there are less than 5
+		if (enemies.size() < 5) {
+			// x and y must be divisible by 50 to be on the grid
+			// y >= 300 (top of player sprite + 2 spaces) to give player some room
+			int x = (rand() % 16) * 50;
+			int y = (rand() % 6) * 50 + (player->GetCoords().y + (player->GetHeight() * 4));
+			
+			while (populatedCoords.count(x) || populatedCoords[x].count(y)) {
+				x = (rand() % 16) * 50;
+				y = (rand() % 6) * 50 + (player->GetCoords().y + (player->GetHeight() * 4));
+			}
+			
+			enemies.emplace_back(enemySprite, Coords({ x, y }), 50, GetWindowWidth(), GetWindowHeight());
+			populatedCoords[x].insert(y);
+		}
+		
+		// move all enemies down
+		for (Spaceship &enemy: enemies)
+			enemy.SetAction(Action::MOVE_DOWN);
+	}
 
 	// update phase
 	player->Update();
-
+	
+	for (Spaceship &enemy: enemies)
+		enemy.Update();
+	
 	for (Laser &laser: lasers)
 		laser.Update();
 
 	// Draw phase
 	player->Draw();
+	
+	for (const Spaceship &enemy: enemies)
+		enemy.Draw();
 
 	for (const Laser &laser: lasers)
 		laser.Draw();
@@ -61,7 +150,7 @@ void GameApp::OnUpdate() {
 
 void GameApp::OnKeyPressed(Hunter::KeyPressedEvent &event) {
 	// shoot code
-	if (event.GetKeyCode() == HUNTER_KEY_SPACE) {
+	if (event.GetKeyCode() == HUNTER_KEY_SPACE && player && player->GetAction() != Action::DEAD) {
 		int x = player->GetCoords().x + (player->GetWidth() / 2) - 5;
 		int y = player->GetCoords().y + player->GetHeight();
 		lasers.emplace_back(
@@ -73,20 +162,20 @@ void GameApp::OnKeyPressed(Hunter::KeyPressedEvent &event) {
 		);
 	}
 
-
-	if (event.GetKeyCode() == HUNTER_KEY_LEFT)
+	if (event.GetKeyCode() == HUNTER_KEY_LEFT && player && player->GetAction() != Action::DEAD)
 		player->SetAction(Action::MOVE_LEFT);
-	else if (event.GetKeyCode() == HUNTER_KEY_RIGHT)
+	else if (event.GetKeyCode() == HUNTER_KEY_RIGHT && player && player->GetAction() != Action::DEAD)
 		player->SetAction(Action::MOVE_RIGHT);
 }
 
 void GameApp::OnKeyHeld(Hunter::KeyHeldEvent &event) {
-	if (event.GetKeyCode() == HUNTER_KEY_LEFT)
-		player->SetAction(Action::HOLD_LEFT);
-	else if (event.GetKeyCode() == HUNTER_KEY_RIGHT)
-		player->SetAction(Action::HOLD_RIGHT);
+	if (event.GetKeyCode() == HUNTER_KEY_LEFT && player && player->GetAction() != Action::DEAD)
+		player->SetAction(Action::BOOST_LEFT);
+	else if (event.GetKeyCode() == HUNTER_KEY_RIGHT && player && player->GetAction() != Action::DEAD)
+		player->SetAction(Action::BOOST_RIGHT);
 }
 
 void GameApp::OnKeyReleased(Hunter::KeyReleasedEvent &event) {
-	player->SetAction(Action::NONE);
+	if (player && player->GetAction() != Action::DEAD)
+		player->SetAction(Action::NONE);
 }

@@ -9,8 +9,10 @@
 #define GameApp_h
 
 #include <deque>
-#include <vector>
+#include <unordered_map>
+#include <unordered_set>
 #include <Hunter/Hunter.h>
+#include "Entity.h"
 #include "Spaceship.h"
 #include "Laser.h"
 
@@ -33,10 +35,11 @@ private:
 	std::string gameOverSprite = "assets/sprites/game-over.png";
 	
 	Spaceship *player;
-	std::vector<Spaceship> enemies;
+	std::deque<Spaceship> enemies;
 	std::deque<Laser> lasers;
-	Hunter::Sprite earth;
+	Entity earth;
 	Hunter::Sprite gameOver;
+	std::unordered_map<int, std::unordered_set<int>> populatedCoords;
 	
 	bool endGame;
 	long long frameNumber;
