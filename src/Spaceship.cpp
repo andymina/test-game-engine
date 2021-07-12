@@ -7,6 +7,10 @@
 
 #include "Spaceship.h"
 
+Spaceship::Spaceship(): Entity() {
+	
+}
+
 Spaceship::Spaceship(
 	const std::string &spritePath,
 	const Coords &pos,

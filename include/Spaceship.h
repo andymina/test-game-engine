@@ -23,17 +23,12 @@ public:
 		const int &health = 3
 	);
 	
-	Spaceship(const Spaceship & other) = delete;
-	Spaceship(Spaceship &&other) = delete;
-	Spaceship& operator=(const Spaceship &rhs) = delete;
-	Spaceship& operator=(Spaceship &&rhs) = delete;
-	
 	virtual void Update() override;
 	void InflictDamage(const int &dmg);
 	void Explode();
 	
 private:
-	const std::string explodeSprite = "assets/sprites/explode.png";
+	std::string explodeSprite = "assets/sprites/explode.png";
 	int health;
 	
 };
