@@ -1,4 +1,5 @@
 .DS_Store
-/build
+/build/ModuleCache.noindex
+/build/test-game-engine
 /obj
 update-game-engine.sh
